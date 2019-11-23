@@ -12,8 +12,10 @@ userController.index = async function(req,res,next)
 //buscar usuario
 userController.findUser = async function(req, res, next)
 {
-    let {id} = req.params;
-    let user = await User.findById(id);
+    let { id } = req.params;
+    let user = await User.findById(id).catch(err => {
+        return next(res);
+    });
     return res.status(200).json(user);
 }
 //crear usuario
@@ -64,3 +66,4 @@ userController.delete = async function(req, res, next)
 
 
 module.exports = userController;
+

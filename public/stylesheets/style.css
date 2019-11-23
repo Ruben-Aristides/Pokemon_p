@@ -1,8 +1,25 @@
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlwx1a5VdccG1vxgdPGM0TedgOrSy9SO_FaFYI_CMTJDkwGt1jzQ&s);
   }
   
   a {
     color: #00B7FF;
   }
+
+.titulo{
+  background-color: red;
+  color: white;
+  font-size: large;
+  text-align: center;
+  padding: 20px;
+}
+
+.boton{
+  display: flex;
+  justify-content: center;
+}
+
+
+
