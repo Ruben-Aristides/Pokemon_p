@@ -12,8 +12,8 @@ userController.index = async function(req,res,next)
 //buscar usuario
 userController.findUser = async function(req, res, next)
 {
-    let { id } = req.params;
-    let user = await User.findById(id).catch(err => {
+    let { pokemon } = req.params;
+    let user = await User.findOne(pokemon).catch(err => {
         return next(res);
     });
     return res.status(200).json(user);
@@ -39,7 +39,7 @@ userController.store = async function(req,res,next)
 
 //modificar usuario
 userController.update = async function (req, res, next) {
-    let { id } = req.params;
+    let { pokemon } = req.params;
     let user = {
         pokemon: req.body.pokemon,
         tipo: req.body.tipo,
@@ -49,7 +49,7 @@ userController.update = async function (req, res, next) {
     }
     console.log(user);
     try {
-        await User.update({ _id: id }, user);
+        await User.update({ _pokemon: pokemon }, user);
         res.status(200).json({ "message": "Pokemon actualizado con exito" });
     }
     catch (err) {
@@ -59,8 +59,8 @@ userController.update = async function (req, res, next) {
 //eliminar usuario
 userController.delete = async function(req, res, next)
 {
-    let {id} = req.params;
-    await User.remove({_id:id});
+    let {pokemon} = req.params;
+    await User.remove({_pokemon:pokemon});
     res.status(200).json({"message":"Pokemon Eliminado con exito"});
 }
 

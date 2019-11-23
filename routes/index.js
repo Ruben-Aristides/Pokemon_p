@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var PORT = procces.env.PORT || 3000;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
