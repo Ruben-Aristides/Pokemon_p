@@ -3,7 +3,7 @@ const {Schema} = mongoose;
 //const bcrypt = require('bcrypt-nodejs');
 
 //esquema de usuarios
-const userSchema = new Schema({
+const userSchema = mongoose.Schema({
     pokemon:{type:String, unique:true, required:true},
     tipo:{type:String,enum:['planta','agua','fuego']},
     evolucion:{type:String},
@@ -12,3 +12,4 @@ const userSchema = new Schema({
 });
 
 module.exports = mongoose.model('users',userSchema);
+

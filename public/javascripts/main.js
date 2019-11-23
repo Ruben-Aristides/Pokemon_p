@@ -56,19 +56,18 @@ document.forms.formUpdate.addEventListener("submit", function (e) {
         });
 });
 //tareas
-function tareas()
-{
+function tareas() {
     fetch('/users',
-    {
-        method:'GET'
-    }).then(res=>res.json())
-    .then(data=>{
-       let filas = "";
-       data.forEach(element => {
-           //console.log(element);
-           filas = filas +`<tr>
+        {
+            method: 'GET'
+        }).then(res => res.json())
+        .then(data => {
+            let filas = "";
+            data.forEach(element => {
+                //console.log(element);
+                filas = filas + `<tr>
            <td>${element.pokemon}</td>
-           <td>${element.tipo}</td>
+           <td>${element.tipo}</td><td>
            <td>${element.evolucion}</td>
            <td>${element.habilidad1}</td>
            <td>${element.habilidad2}</td>
@@ -77,9 +76,9 @@ function tareas()
             <a href="/users/${element._id}" class="delete btn btn-danger">Eliminar</a>
            </td>
            </tr>`
-       });
-       document.querySelector("#filas").innerHTML = filas;
-            //agregando eventos para actualizar 
+            });
+            document.querySelector("#filas").innerHTML = filas;
+            //agregando los eventos para actualizar 
             let btn_update = document.querySelectorAll('.update');
             btn_update.forEach(item => {
                 item.addEventListener("click", function (e) {
@@ -92,11 +91,8 @@ function tareas()
                         .catch(err => console.error(err))
                         .then(response => {
                             document.forms.formUpdate._id.value = response._id;
-                            document.forms.formUpdate.pokemonU.value = response.pokemon;
-                            document.forms.formUpdate.tipoU.value = response.tipo;
-                            document.forms.formUpdate.evolucionU.value = response.evolucion;
-                            document.forms.formUpdate.habilidad1U.value = response.habilidad1;
-                            document.forms.formUpdate.habilidad2U.value = response.habilidad2;
+                            document.forms.formUpdate.userU.value = response.userName;
+                            document.forms.formUpdate.rolU.value = response.rol;
                         });
                 });
             });
