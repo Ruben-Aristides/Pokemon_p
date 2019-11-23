@@ -1,5 +1,5 @@
 body {
-    padding: 50px;
+    padding: 150px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlwx1a5VdccG1vxgdPGM0TedgOrSy9SO_FaFYI_CMTJDkwGt1jzQ&s);
   }
@@ -14,12 +14,20 @@ body {
   font-size: large;
   text-align: center;
   padding: 20px;
+  border: 1px solid red;
 }
 
 .boton{
   display: flex;
   justify-content: center;
+  color: white;
+  font-size: large;
+  margin: 5px 0 25px;
 }
+
+
+
+
 
 
 
